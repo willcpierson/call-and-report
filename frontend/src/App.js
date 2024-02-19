@@ -1,6 +1,12 @@
+import PlayerBox from "./components/PlayerBox";
+import SetWindow from "./components/SetWindow";
+
 function App() {
   return (
-    <h1>Hello from Call And Report</h1>
+    <div>
+      <SetWindow />
+      <PlayerBox />
+    </div>
   );
 }
 
