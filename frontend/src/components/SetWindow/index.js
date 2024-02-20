@@ -13,7 +13,7 @@ const SetWindow = () => {
             },
             body: 
               JSON.stringify({
-                  "query": "query EventSets($eventId: ID!, $page: Int!, $perPage: Int!) {\n  event(id: $eventId) {\n    id\n    name\n    sets(\n      page: $page\n      perPage: $perPage\n      sortType: STANDARD\n    ) {\n      pageInfo {\n        total\n      }\n      nodes {\n        id\n        slots {\n          id\n          entrant {\n            id\n            name\n          }\n        }\n      }\n    }\n  }\n},",
+                  "query": 'query EventSets($eventId: ID!, $page: Int!, $perPage: Int!) {\n  event(id: $eventId) {\n    id\n    name\n    sets(\n      page: $page\n      perPage: $perPage\n      sortType: STANDARD\n    ) {\n      pageInfo {\n        total\n      }\n      nodes {\n        id\n        fullRoundText\n        slots {\n          id\n          entrant {\n            id\n            name\n          }\n        }\n      }\n    }\n  }\n},',
                   "variables": {"eventId": "1074114", "page": 1, "perPage": 50},
                   "operationName": "EventSets"
               })
@@ -33,7 +33,13 @@ const SetWindow = () => {
     const mappedSets = sets.map((set) => {
         if (set.slots[0].entrant !== null && set.slots[1].entrant !== null) {
             console.log(set.slots[0].entrant)
-            return <SetItem players={set.slots} />
+
+            return (
+                <div>
+                    <h1>{set.fullRoundText}</h1>
+                    <SetItem players={set.slots} />
+                </div>
+            );
         }
      });
 
