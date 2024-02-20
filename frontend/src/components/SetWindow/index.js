@@ -20,6 +20,9 @@ const SetWindow = () => {
           });
         let fetchedData = await res.json();
         console.log(fetchedData)
+        const setsArray = fetchedData.data.event.sets.nodes
+        console.log(setsArray)
+        setSets(setsArray)
     };
 
     const handleFindSets = (e) => {
@@ -28,13 +31,17 @@ const SetWindow = () => {
     };
 
     const mappedSets = sets.map((set) => {
-        return <SetItem set={set} />
+        if (set.slots[0].entrant !== null && set.slots[1].entrant !== null) {
+            console.log(set.slots[0].entrant)
+            return <SetItem players={set.slots} />
+        }
      });
 
     return (
         <div>
             <h1>Hello from Set Window</h1>
             <button onClick={handleFindSets}>Find Sets In Console</button>
+            {mappedSets}
         </div>
     )
 

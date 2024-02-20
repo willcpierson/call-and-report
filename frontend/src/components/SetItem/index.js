@@ -2,15 +2,14 @@
 
 
 
-const SetItem = (props) => {
+const SetItem = ({ players }) => {
 
 
 
     return (
         <>
-            <h1>Hello from Set Item</h1>
-            <h2>Set Title</h2>
-            <p>Set Info</p>
+            <h1>Set Round</h1>
+            <h2>{players[0].entrant.name} VS {players[1].entrant.name}</h2>
         </>
     );
 };
