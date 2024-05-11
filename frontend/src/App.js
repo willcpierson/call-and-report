@@ -3,6 +3,7 @@ import SetWindow from "./components/SetWindow";
 
 function App() {
 
+  const help = "assist"
 
   return (
     <div>
