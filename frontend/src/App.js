@@ -8,6 +8,10 @@ function App() {
   return (
     <div>
       <SetWindow />
+      <div></div>
+      <section></section>
+      <footer></footer>
+      <div></div>
       <h1 id="hello">Hell from Set Window</h1>
       <PlayerBox />
     </div>
